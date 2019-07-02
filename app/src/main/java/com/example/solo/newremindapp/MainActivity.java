@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent addRemindIntent = new Intent(getApplicationContext(), CreateRemind.class);
+                addRemindIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(addRemindIntent);
             }
         });
     }
@@ -134,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
     public class customAdapter extends ArrayAdapter<Remind> {
         public customAdapter() {
             super(MainActivity.this, R.layout.remind_layout, remindList);
